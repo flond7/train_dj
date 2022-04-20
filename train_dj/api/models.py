@@ -9,6 +9,9 @@ class User(models.Model):
     mail = models.EmailField(max_length=150)
     pw = models.CharField(max_length=50)
 
+    class Meta:
+        ordering = ['id']
+
 class Question(models.Model):
     id = models.AutoField(primary_key=True)
     created = models.DateTimeField(auto_now_add=True)
@@ -20,8 +23,14 @@ class Question(models.Model):
     id_path = models.IntegerField()
     id_video = models.IntegerField()
 
-class Results(models.Model):
+    class Meta:
+        ordering = ['id']
+
+class Result(models.Model):
     id = models.AutoField(primary_key=True)
     correct = models.BooleanField()
     id_question = models.IntegerField()
     id_user = models.IntegerField()  
+
+    class Meta:
+        ordering = ['id']
